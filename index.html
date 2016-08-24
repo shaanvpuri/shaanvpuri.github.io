@@ -6,12 +6,15 @@
   <div>Shaan's blog</div>
   <div id="username"></div>
   <script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function(event) {
     Bebo.onReady(function(){
       Bebo.User.getUser("me", function(err, user){
         var el = document.getElementById("username");
         el.innerHTML = user.username;
       })
     });
+    console.log("DOM fully loaded and parsed");
+  });
   </script>
 </body>
 </html>

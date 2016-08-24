@@ -1,5 +1,17 @@
 <html>
+  <head>
+    <script type="text/javascript" src="https://widgets.blab-dev.im/bebo.min.js"></script>
+  </head>
 <body>
-  Shaan's blog
+  <div>Shaan's blog</div>
+  <div id="username"></div>
+  <script type="text/javascript">
+    Bebo.onReady(function(){
+      Bebo.User.getUser("me", function(err, user){
+        var el = document.getElementById("username");
+        el.innerHTML = user.username;
+      })
+    });
+  </script>
 </body>
 </html>

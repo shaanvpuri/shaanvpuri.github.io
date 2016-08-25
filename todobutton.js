@@ -62,8 +62,13 @@ $(document).ready(function() {
 		var span = document.createElement("span");
 		span.innerText= itemText;
 		span.id = "item_" + id;
+		/* Double Click doesn't work on mobile
 		span.onclick = renameItem;
-		span.ondblclick = removeItem;
+		span.ondblclick = removeItem;*/
+
+		$("span").on("taphold",function(){
+  $(this).hide();
+});
 
 		listItem.appendChild(checkBox);
 		listItem.appendChild(span);

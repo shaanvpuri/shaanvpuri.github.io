@@ -66,7 +66,7 @@ $(document).ready(function() {
 		span.onclick = renameItem;
 		span.ondblclick = removeItem;*/
 
-		$("itemText").on("taphold",function(){
+		$("span").on("taphold",function(){
   console.log(taphold);
 });
 

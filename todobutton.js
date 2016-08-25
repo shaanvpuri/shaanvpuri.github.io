@@ -15,7 +15,8 @@ $(document).ready(function() {
  			return console.log('error saving data', err);
  		}
  		console.log('data', data);
- 		console.log(data.result);
+ 		console.log(data.result[0].body);
+
  	});
 
 	function updateItemStatus() {

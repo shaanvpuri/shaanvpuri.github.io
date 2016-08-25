@@ -17,7 +17,7 @@ $(document).ready(function() {
  		console.log('data', data);
 
  		//trying to make a for loop
- 		for(var i=0; i < data.result.length; i++) {
+ 		for(var i=0; i < data.result.length; 10) {
  			$("ul").append("<li>" + data.result[i].body + "</li>");
  		}
  		
@@ -66,10 +66,7 @@ $(document).ready(function() {
 		span.onclick = renameItem;
 		span.ondblclick = removeItem;*/
 
-		$("span").on("taphold",function(){
-  console.log(taphold);
-});
-
+		
 		listItem.appendChild(checkBox);
 		listItem.appendChild(span);
 		list.appendChild(listItem);

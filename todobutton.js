@@ -15,7 +15,14 @@ $(document).ready(function() {
  			return console.log('error saving data', err);
  		}
  		console.log('data', data);
- 		$("ul").append("<li>" + data.result[0].body + "</li>");
+
+ 		//trying to make a for loop
+ 		
+ 	
+ 		for(var i=0; i < data.result.length; i++) {
+ 			$("ul").append("<li>" + data.result[i].body + "</li>");
+ 		}
+ 		
  	});
 
 	function updateItemStatus() {

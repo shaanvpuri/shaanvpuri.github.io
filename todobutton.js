@@ -17,7 +17,7 @@ $(document).ready(function() {
  		console.log('data', data);
 
  		//trying to make a for loop
- 		for(var i=0; i < 10; i++) {
+ 		for(var i=0; i < data.result.length; i++) {
  			$("ul").append("<li>" + data.result[i].body + "</li>");
  		}
  		

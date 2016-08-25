@@ -1,20 +1,23 @@
+<!doctype html> 
 <html>
   <head>
-    <script type="text/javascript" src="https://widgets.blab-dev.im/bebo.min.js"></script>
+    <title> How To Javascript </title>
+    <style>
+    ul { list-style: none; padding:0; margin:0 ; width: 300px;}
+    li { border: 1px solid #ccc; background: #eee; padding: 5px 10px; color: #000; }
+    </style> 
   </head>
-<body>
-  <div>Shaan's blog2</div>
-  <div id="username"></div>
-  <script type="text/javascript">
-  document.addEventListener("DOMContentLoaded", function(event) {
-    Bebo.onReady(function(){
-      Bebo.User.getUser("me", function(err, user){
-        var el = document.getElementById("username");
-        el.innerHTML = user.username;
-      })
-    });
-    console.log("DOM fully loaded and parsed");
-  });
-  </script>
+  <body>
+
+<h1>To Do List</h1>
+
+<p><input type="text" id = "inItemText" /> </p>
+
+<ul id="todoList">
+
+</ul>
+
+<script src="todo.js"></script>
+
 </body>
-</html>
+<html> 

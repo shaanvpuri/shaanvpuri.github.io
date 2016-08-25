@@ -17,8 +17,6 @@ $(document).ready(function() {
  		console.log('data', data);
 
  		//trying to make a for loop
- 		
- 	
  		for(var i=0; i < data.result.length; i++) {
  			$("ul").append("<li>" + data.result[i].body + "</li>");
  		}
@@ -44,8 +42,8 @@ $(document).ready(function() {
 	function removeItem() {
 
 		//this == span 
-		var spanID = this.id.replace("item_", "");
-		document.getElementById("li_" + spanID).style.display = "none";
+		var spanId = this.id.replace("item_", "");
+		document.getElementById("li_" + spanId).style.display = "none";
 	}
 
 	function addNewItem(list, itemText) {
@@ -55,6 +53,7 @@ $(document).ready(function() {
 
 		var listItem = document.createElement("li");
 		listItem.id = "li_" + id;
+
 		var checkBox = document.createElement("input");
 		checkBox.type = "checkbox";
 		checkBox.id = "cb_" + id;

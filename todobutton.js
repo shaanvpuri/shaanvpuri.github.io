@@ -67,7 +67,7 @@ $(document).ready(function() {
 		span.ondblclick = removeItem;*/
 
 		$("itemText").on("taphold",function(){
-  $(this).hide();
+  console.log(taphold);
 });
 
 		listItem.appendChild(checkBox);

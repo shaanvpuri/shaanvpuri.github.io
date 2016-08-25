@@ -73,7 +73,7 @@ btnNew.onclick = function() {
  	inItemText.focus();	
  	inItemText.select();
 
- 	Bebo.db.save('todo', {"body": itemText}, function(err, data) {
+ 	Bebo.Db.save('todo', {"body": itemText}, function(err, data) {
 
  		if(err){return console.log('error saving data', err)};
  		console.log('data', data);

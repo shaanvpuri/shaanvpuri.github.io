@@ -5,6 +5,9 @@
 //lessons learned 
 //- avoid global variables
 // - strive to make functions reusable
+$(document).ready(function() {
+  console.log("document ready"); 
+
 Bebo.onReady(function(){
 
 Bebo.Db.get("todo", {}, function(err, data){
@@ -87,5 +90,7 @@ btnNew.onclick = function() {
 
 	};
 
+
+});
 
 });

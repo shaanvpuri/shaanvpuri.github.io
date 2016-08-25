@@ -5,7 +5,8 @@
 //lessons learned 
 //- avoid global variables
 // - strive to make functions reusable
-
+Bebo.onReady(function(){
+    
 function updateItemStatus() {
 	var cbID = this.id.replace("cb_", "");
 	var itemText = document.getElementById("item_" + cbID);
@@ -82,3 +83,5 @@ btnNew.onclick = function() {
 
 	};
 
+
+});

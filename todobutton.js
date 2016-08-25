@@ -6,7 +6,11 @@
 //- avoid global variables
 // - strive to make functions reusable
 Bebo.onReady(function(){
-    
+
+Bebo.Db.get("todo", {}, function(err, data){
+ 		if(err){return console.log('error saving data', err)};
+ 		console.log('data', data);});
+
 function updateItemStatus() {
 	var cbID = this.id.replace("cb_", "");
 	var itemText = document.getElementById("item_" + cbID);

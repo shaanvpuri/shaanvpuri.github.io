@@ -67,9 +67,9 @@ $(document).ready(function() {
 		span.ondblclick = removeItem;*/
 
 		
-		listItem.prependChild(checkBox);
-		listItem.prependChild(span);
-		list.prependChild(listItem);
+		listItem.insertBefore(checkBox);
+		listItem.insertBefore(span);
+		list.insertBefore(listItem);
 
 
 

@@ -1,14 +1,6 @@
-
-//each item should look like this: 
-// <li><input type ="checkbox" /> <span> Write this tutorial </span></li>
-
-//lessons learned 
-//- avoid global variables
-// - strive to make functions reusable
-$(document).ready(function() {
-  console.log("document ready"); 
-
-	Bebo.onReady(function(){
+$(document).ready();
+// Check items when complete
+Bebo.onReady(function(){
 
 	Bebo.Db.get("todo", {}, function(err, data){
  		if(err){
@@ -18,89 +10,35 @@ $(document).ready(function() {
 
  		//trying to make a for loop
  		for(var i=0; i < 10; i++) {
- 			$("ul").append("<li>" + data.result[i].body + "</li>");
+ 			 $(".list").append("<li>" + data.result[i].body + "<span class='check'>" + "</span>" + "<svg height='auto' class='remove' version='1.1' viewBox='0 0 19 23' width='15px' xmlns='http://www.w3.org/2000/svg' xmlns:sketch='http://www.bohemiancoding.com/sketch/ns' xmlns:xlink='http://www.w3.org/1999/xlink'><title/><defs><path d='M0.501203573,1.96015511 C0.501203573,1.96015511 7.17230047e-07,1.96015511 0,2.96015511 C-4.1525821e-07,3.96015511 0.501203573,3.96015511 0.501203573,3.96015511 L18.4987964,3.96015511 C18.4987964,3.96015511 19,3.96015511 19,2.96015511 C18.9999995,1.96015511 18.4987964,1.96015511 18.4987964,1.96015511 L0.501203573,1.96015511 L0.501203573,1.96015511 Z M0.973754885,4.96015511 L1.97273588,4.96015511 L3.97375489,21.9601551 L14.9737549,21.9601551 L16.9737549,4.96015511 L17.9737549,4.96015511 L15.9737549,22.9601551 L2.97375489,22.9601551 L0.973754885,4.96015511 Z M7.9737549,0.960155108 C6.9737549,0.960155108 6.9737549,1.96015511 6.9737549,1.96015511 L11.9737549,1.96015511 C11.9737549,1.96015511 11.9737549,0.960155108 10.9737549,0.960155108 L7.9737549,0.960155108 L7.9737549,0.960155108 Z M5.9737549,20.9601551 L6.9737549,20.9601551 L5.9737549,4.92304573 L4.97375489,4.92304573 L5.9737549,20.9601551 Z M12.9737549,4.92304573 L11.9737549,20.9601551 L12.9737549,20.9601551 L13.9737549,4.92304573 L12.9737549,4.92304573 L12.9737549,4.92304573 Z M8.9737549,4.92304573 L8.9737549,20.9601551 L9.9737549,20.9601551 L9.9737549,4.92304573 L8.9737549,4.92304573 L8.9737549,4.92304573 Z' id='path-1'/></defs><g fill='none' fill-rule='evenodd' id='miu' stroke='none' stroke-width='1'><g id='editor_trash_delete_recycle_bin_outline_stroke'><use fill='#FFF' fill-rule='evenodd' xlink:href='#path-1'/><use fill='none' xlink:href='#path-1'/></g></g></svg>" + "</li>")
  		}
  		
  	});
 
-	function updateItemStatus() {
-		var cbID = this.id.replace("cb_", "");
-		var itemText = document.getElementById("item_" + cbID);
 
-		if (this.checked) {
-			itemText.className = "checked";
-		} else {
-			itemText.className = "";
-	}
-	
-	}
+$(document).on("click", ".check", function() {
 
-	function renameItem() {
-		// this == span 
-	}
+  $(this).toggleClass("selected");
 
-	function removeItem() {
+});
 
-		//this == span 
-		var spanId = this.id.replace("item_", "");
-		document.getElementById("li_" + spanId).style.display = "none";
-	}
+// When enter key is pressed append a new item to the list
 
-	function addNewItem(list, itemText) {
-		
-		var date = new Date();
-		var id = date.getHours() + "" + date.getMinutes() + date.getSeconds() + date.getMilliseconds();
+$(".toDo").keydown(function(event) {
 
-		var listItem = document.createElement("li");
-		listItem.id = "li_" + id;
+  if (event.which === 13) {
 
-		var checkBox = document.createElement("input");
-		checkBox.type = "checkbox";
-		checkBox.id = "cb_" + id;
-		checkBox.onclick = updateItemStatus;
+    $(".list").append("<li>" + $(this).val() + "<span class='check'>" + "</span>" + "<svg height='auto' class='remove' version='1.1' viewBox='0 0 19 23' width='15px' xmlns='http://www.w3.org/2000/svg' xmlns:sketch='http://www.bohemiancoding.com/sketch/ns' xmlns:xlink='http://www.w3.org/1999/xlink'><title/><defs><path d='M0.501203573,1.96015511 C0.501203573,1.96015511 7.17230047e-07,1.96015511 0,2.96015511 C-4.1525821e-07,3.96015511 0.501203573,3.96015511 0.501203573,3.96015511 L18.4987964,3.96015511 C18.4987964,3.96015511 19,3.96015511 19,2.96015511 C18.9999995,1.96015511 18.4987964,1.96015511 18.4987964,1.96015511 L0.501203573,1.96015511 L0.501203573,1.96015511 Z M0.973754885,4.96015511 L1.97273588,4.96015511 L3.97375489,21.9601551 L14.9737549,21.9601551 L16.9737549,4.96015511 L17.9737549,4.96015511 L15.9737549,22.9601551 L2.97375489,22.9601551 L0.973754885,4.96015511 Z M7.9737549,0.960155108 C6.9737549,0.960155108 6.9737549,1.96015511 6.9737549,1.96015511 L11.9737549,1.96015511 C11.9737549,1.96015511 11.9737549,0.960155108 10.9737549,0.960155108 L7.9737549,0.960155108 L7.9737549,0.960155108 Z M5.9737549,20.9601551 L6.9737549,20.9601551 L5.9737549,4.92304573 L4.97375489,4.92304573 L5.9737549,20.9601551 Z M12.9737549,4.92304573 L11.9737549,20.9601551 L12.9737549,20.9601551 L13.9737549,4.92304573 L12.9737549,4.92304573 L12.9737549,4.92304573 Z M8.9737549,4.92304573 L8.9737549,20.9601551 L9.9737549,20.9601551 L9.9737549,4.92304573 L8.9737549,4.92304573 L8.9737549,4.92304573 Z' id='path-1'/></defs><g fill='none' fill-rule='evenodd' id='miu' stroke='none' stroke-width='1'><g id='editor_trash_delete_recycle_bin_outline_stroke'><use fill='#FFF' fill-rule='evenodd' xlink:href='#path-1'/><use fill='none' xlink:href='#path-1'/></g></g></svg>" + "</li>");
 
-		var span = document.createElement("span");
-		span.innerText= itemText;
-		span.id = "item_" + id;
-		/* Double Click doesn't work on mobile
-		span.onclick = renameItem;
-		span.ondblclick = removeItem;*/
+    $(this).val('');
+  }
+});
 
-		
-		listItem.insertBefore(checkBox);
-		listItem.insertBefore(span);
-		list.insertBefore(listItem);
+// Delete items off list
 
+$(document).on("click", ".remove", function() {
 
-
-	}
-
-
-	var btnNew = document.getElementById("btnAdd");
-	btnNew.onclick = function() {
-
-		var inItemText = document.getElementById("inItemText");
-
-		var itemText = inItemText.value;
-
-		if (!itemText || itemText == "") {
-			return false;
-		}
-		
-		addNewItem(document.getElementById("todoList"), itemText);
-	 	
-	 	inItemText.focus();	
-	 	inItemText.select();
-
-	 	Bebo.Db.save('todo', {"body": itemText}, function(err, data) {
-
-	 		if(err){return console.log('error saving data', err)};
-	 		console.log('data', data);
-	 	});
-	 	
-
-		};
-
+  $(this).parent().remove();
 
 });
 

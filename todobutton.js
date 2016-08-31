@@ -16,7 +16,7 @@ Bebo.onReady(function(){
  	});
 
 
-$(document).on("click", ".check", function() {
+$(document).on("tap", ".check", function() {
 
   $(this).toggleClass("selected");
 
@@ -36,7 +36,7 @@ $(".toDo").keydown(function(event) {
 
 // Delete items off list
 
-$(document).on("click", ".remove", function() {
+$(document).on("tap", ".remove", function() {
 
   $(this).parent().remove();
 
